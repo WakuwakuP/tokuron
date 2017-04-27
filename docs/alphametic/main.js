@@ -2,7 +2,6 @@
 
 /**
  * array.permutation()の追加
- * @return {[type]} [description]
  */
 (function() {
   var generatePermutation = function(perm, pre, post, n) {
