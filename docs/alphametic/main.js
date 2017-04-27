@@ -26,6 +26,8 @@
 
 // 0から9までの10個の順列を取得
 var perm = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation();
+
+var count = 0;
 /**
  * 添字対応
  * 0 1 2 3 4 5 6 7 8 9
@@ -39,19 +41,23 @@ function check (i) {
   var talk = perm[i][8] * 1000 + perm[i][0] * 100 + perm[i][5] * 10 + perm[i][4];
   var skill = perm[i][7] * 10000 + perm[i][4] * 1000 + perm[i][3] * 100 + perm[i][5] * 10 + perm[i][5];
 
-  if (read + write + talk == skill) {
-    console.log(read + ' + ' + write + ' + ' + talk + ' = ' + skill);
+  if (read + write + talk == skill && perm[i][6] != 0 && perm[i][9] != 0 && perm[i][8] != 0 && perm[i][7] != 0) {
     var newp = document.createElement('p');
     newp.innerHTML = read + ' + ' + write + ' + ' + talk + ' = ' + skill;
     answer.appendChild(newp);
+    count++;
+    console.log(read + ' + ' + write + ' + ' + talk + ' = ' + skill);
   }
 }
 
 function main () {
   var answer = document.getElementById('answer');
-
+  count = 0;
   while (answer.firstChild) answer.removeChild(answer.firstChild);
   for (var i = 0, l = perm.length; i < l; i++) {
     check(i);
   }
+  var newp = document.createElement('p');
+  newp.innerHTML = '以上の'+ count +'通り';
+  answer.appendChild(newp);
 }
