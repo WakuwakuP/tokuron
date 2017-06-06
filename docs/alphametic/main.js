@@ -24,9 +24,6 @@
   };
 })();
 
-// 0から9までの10個の順列を取得
-var perm = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation();
-
 var count = 0;
 /**
  * 添字対応
@@ -51,6 +48,10 @@ function check (i) {
 }
 
 function main () {
+  
+  // 0から9までの10個の順列を取得
+  var perm = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation();
+  
   var answer = document.getElementById('answer');
   count = 0;
   while (answer.firstChild) answer.removeChild(answer.firstChild);
