@@ -25,6 +25,22 @@
 })();
 
 var count = 0;
+
+function main () {
+  // 0から9までの10個の順列を取得
+  var perm = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation();
+  
+  var answer = document.getElementById('answer');
+  count = 0;
+  while (answer.firstChild) answer.removeChild(answer.firstChild);
+  for (var i = 0, l = perm.length; i < l; i++) {
+    check(i);
+  }
+  var newp = document.createElement('p');
+  newp.innerHTML = '以上の'+ count +'通り';
+  answer.appendChild(newp);
+}
+
 /**
  * 添字対応
  * 0 1 2 3 4 5 6 7 8 9
@@ -45,20 +61,4 @@ function check (i) {
     count++;
     console.log(read + ' + ' + write + ' + ' + talk + ' = ' + skill);
   }
-}
-
-function main () {
-  
-  // 0から9までの10個の順列を取得
-  var perm = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].permutation();
-  
-  var answer = document.getElementById('answer');
-  count = 0;
-  while (answer.firstChild) answer.removeChild(answer.firstChild);
-  for (var i = 0, l = perm.length; i < l; i++) {
-    check(i);
-  }
-  var newp = document.createElement('p');
-  newp.innerHTML = '以上の'+ count +'通り';
-  answer.appendChild(newp);
 }
